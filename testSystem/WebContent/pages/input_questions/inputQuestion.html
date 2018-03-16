@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>试题录入</title>
+<link rel="stylesheet" type="text/css" href="../../CSS/style.css">
+</head>
+<body>
+	<div id="input" class="mainarea">
+		<h1>试题录入</h1>
+		<form>
+		<ul id="inputul" class="inputul">
+			<li>
+				<label for="module"> 模块： </label> <br> 
+				<input list="moduleList" id="module" class="mytxt">
+				<datalist id="moduleList">
+					<option value="1">模块一</option>
+			        <option value="2">模块二</option>
+			        <option value="3">模块三</option>
+			        <option value="4">模块四</option>
+				</datalist>
+			</li>
+		
+			<li><label for="type"> 类型： </label> <br> <input
+				list="datalist" id="type" class="mytxt"> <datalist
+					id="datalist">
+					<option value="1">单选题</option>
+					<option value="2">填空题</option>
+					<option value="3">简答题</option>
+					<option value="10">其他题型</option>
+				</datalist>
+			</li>
+			<li><label for="stem"> 题干： </label> <br> 
+			<textarea id="stem" class="mytxt">
+					</textarea></li>
+			<li><label for="answer"> 参考答案： </label> <br> <textarea
+					id="answer" class="mytxt"></textarea></li>
+			<li><label for="difficulty"> 难度等级： </label> <br> <input
+				list="difficulty" id="difdeg" class="mytxt"> <datalist
+					id="difficulty">
+					<option value="1">容易</option>
+					<option value="2">简单</option>
+					<option value="3">一般</option>
+					<option value="4">困难</option>
+					<option value="5">高深</option>
+				</datalist></li>
+			<li><input type="button" class="button" id="submit"	name="submit" value="提交" /> 
+				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+				<input type="reset" class="button" id="reset" name="reset" value="重置" /></li>
+		</ul>
+		</form>
+	</div>
+	<script type="text/javascript" src="../../JS/jquery-3.2.1.min.js"
+		charset="utf-8"></script>
+	<script type="text/javascript" src="../../JS/json2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../../JS/json_parse.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../../JS/questionInputAjax.js"
+		charset="utf-8"></script>  
+</body>
+
+</html>

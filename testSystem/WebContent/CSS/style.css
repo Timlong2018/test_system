@@ -1,0 +1,236 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	paddinng: 0;
+}
+
+#nav {
+	background-color: #CCC;
+	width: 960px;
+	margin: 0 auto;
+	height: 40px;
+}
+
+.mainarea {
+	background-color: #8FBC8F;
+	text-align: center;
+	width: 960px;
+	margin: 5px auto;
+	height: 1500px;
+	font-family: "Microsoft YaHei", Tahoma, Verdana, SimSun;
+}
+
+h1 {
+	text-align: center;
+	font-family: "隶书"
+}
+
+ul {
+	list-style: none;
+}
+
+ul li {
+	float: left;
+	padding: 0 20px;
+	text-align: center;
+	line-height: 40px;
+	font-family: "微软雅黑";
+}
+
+.inputul {
+	width: 300px;
+	height: 1000px;
+	background-color: #DDAODD;
+}
+
+label {
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	padding: 0 20px;
+}
+
+a:hover {
+	background-color: #930;
+	color: #FFF;
+}
+
+textarea {
+	width: 90;
+	height: 10;
+}
+
+.mytxt {
+	width: 300px;
+	height: 42px;
+	padding-left: 13px;
+	color: #333;
+	line-height: normal;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-variant: normal;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-left: 4px;
+	font-size: 15px;
+	outline-width: medium;
+	outline-style: none;
+	outline-color: invert;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	text-shadow: 0px 1px 2px #fff;
+	background-attachment: scroll;
+	background-repeat: repeat-x;
+	background-position-x: left;
+	background-position-y: top;
+	background-size: auto;
+	background-origin: padding-box;
+	background-clip: border-box;
+	background-color: rgb(255, 255, 255);
+	margin-right: 8px;
+	border-top-color: #ccc;
+	border-right-color: #ccc;
+	border-bottom-color: #ccc;
+	border-left-color: #ccc;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+
+.mytxt:focus {
+	border: 1px solid #fafafa;
+	-webkit-box-shadow: 0px 0px 6px #007eff;
+	-moz-box-shadow: 0px 0px 5px #007eff;
+	box-shadow: 0px 0px 5px #007eff;
+}
+
+.timeBox {
+	width: 140px;
+	font-family: "微软雅黑";
+	font-weight: 1px;
+}
+
+.checkBox {
+	width: 20px;
+	height: 20px;
+	float: center;
+	cursor: pointer;
+	margin-left: 10px;
+	text-align: center;
+	background-image: url(images/checkbox_01.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.numInput {
+	width: 100px;
+	height: 42px;
+	padding-left: 13px;
+	color: #333;
+	line-height: normal;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-variant: normal;
+	font-size-adjust: none;
+	font-stretch: normal;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-left: 4px;
+	font-size: 15px;
+	outline-width: medium;
+	outline-style: none;
+	outline-color: invert;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	text-shadow: 0px 1px 2px #fff;
+	background-attachment: scroll;
+	background-repeat: repeat-x;
+	background-position-x: left;
+	background-position-y: top;
+	background-size: auto;
+	background-origin: padding-box;
+	background-clip: border-box;
+	background-color: rgb(255, 255, 255);
+	margin-right: 8px;
+	border-top-color: #ccc;
+	border-right-color: #ccc;
+	border-bottom-color: #ccc;
+	border-left-color: #ccc;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+
+.button, .button:visited {
+	background: #222 url(overlay.png) repeat-x;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	position: relative;
+	cursor: pointer
+}
+
+p.tip {
+	font-family: "微软雅黑";
+	font-weight: 1px;
+	font-size: small;
+}
+
+.search {
+	width: 84%;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid #cccbcb;
+	border-radius: 7px;
+	font-size: 1em;
+	font-weight: bold;
+	color: #fff;
+	background: #0dbfdd;
+	cursor: pointer;
+}
+
+.showPaper {
+	width: 90%;
+	hight: 500px;
+	overflow: auto; 
+}
+.file{
+	display: none;
+	
+}

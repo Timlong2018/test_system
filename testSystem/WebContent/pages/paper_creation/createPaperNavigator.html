@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建试卷导航栏</title>
+
+<link rel="stylesheet" type="text/css" href="../../CSS/nav.css">
+<link rel="stylesheet" type="text/css" href="../../font/iconfont.css">
+
+</head>
+<body>
+	<div class="nav">
+		<div class="nav-top">
+			<div id="mini"
+				style="border-bottom: 1px solid rgba(255, 255, 255, .1)">
+				<img src="../../img/mini.png">
+			</div>
+		</div>
+		<ul>
+			<li class="nav-item"><a href="#" id="name"><i
+					class="my-icon nav-icon icon_1"></i><span>试卷名称</span><i
+					class="my-icon nav-more"></i></a>
+				<ul>
+					<li><input type="text" id="paper_name"
+						placeholder="请输入试卷名称"></li>
+				</ul></li>
+			<li class="nav-item"><a href="#" id="type"><i
+					class="my-icon nav-icon icon_1"></i><span>试卷类型</span><i
+					class="my-icon nav-more"></i></a>
+				<ul>
+					<li><input type="text" id="paper_type"
+						placeholder="请输入试卷类型"></li>
+				</ul></li>
+			<li class="nav-item"><a href="#" id="type"><i
+					class="my-icon nav-icon icon_1"></i><span>考试时间</span><i
+					class="my-icon nav-more"></i></a>
+				<ul>
+					<li><input type="datetime-local" id="exam_time"  value="2017-01-01 00:00:00"
+						placeholder="请输入试卷的考试时间"></li>
+				</ul></li>
+			<li class="nav-item"><a href="#" id="choice"><i
+					class="my-icon nav-icon icon_1"></i><span>选择题</span><i
+					class="my-icon nav-more"></i></a>
+				<ul>
+					<li><input type="text" id="choice_num"
+						placeholder="请输入试卷中选择题的数量"></li>
+				</ul></li>
+			<li class="nav-item"><a href="#" id="gap_fill"><i
+					class="my-icon nav-icon icon_1"></i><span>填空题</span><i
+					class="my-icon nav-more"></i></a>
+				<ul>
+					<li><input type="text" id="gap_fill_num"
+						placeholder="请输入试卷中填空题的数量"></li>
+				</ul></li>
+			<li class="nav-item"><a href="#" id="answerQues"><i
+					class="my-icon nav-icon icon_1"></i><span>简答题</span><i
+					class="my-icon nav-more"></i></a>
+				<ul>
+					<li><input type="text" id="answerQues_num"
+						placeholder="请输入试卷中简答题的数量"></li>
+				</ul></li>
+		</ul>
+	</div>
+	<div style="text-align: center;">
+		<p>
+	</div>
+	<script type="text/javascript" src="../../JS/jquery.min.js"></script>
+	<script type="text/javascript" src="../../JS/nav.js"></script>
+	<script src="../../JS/jquery-3.2.1.min"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		//定义各种题型的数量变量
+			var choice_num = 0;
+			var gap_fill_num = 0;
+			var answerQues_num = 0;
+			$("#choice_num").change(function() {
+			var posInt_reg = /^[1-9]\d*$/;
+			if (posInt_reg.test($("#choice_num").val().trim())) {
+			choice_num = $("#choice_num").val().trim();	
+			}
+		});
+
+			$("#gap_fill_num").change(function() {
+			var posInt_reg = /^[1-9]\d*$/;
+			if (posInt_reg.test($("#gap_fill_num").val().trim())) {
+				gap_fill_num = $("#gap_fill_num").val().trim();
+			}
+		});
+			$("#answerQues_num").change(function() {
+				var posInt_reg = /^[1-9]\d*$/;
+				if (posInt_reg.test($("#answerQues_num").val().trim())) {
+				answerQues_num = $("#answerQues_num").val().trim();
+		    	}
+			});
+		});
+	</script>
+</body>
+</html>
+
+

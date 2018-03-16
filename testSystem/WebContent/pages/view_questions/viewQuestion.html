@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>查看试题</title>
+<link rel="stylesheet" type="text/css" href="../../CSS/style.css">
+</head>
+<body>
+	<div id="view" class="mainarea">
+		<h1>试题查看</h1>
+		<br>
+		<p class="tip">请选择您要查询的试题的相关信息，系统将根据您提供的信息搜索试题库。</p>
+		<br>
+		<div>
+			<input list="typedata" id="type" class="mytxt" placeholder="试题类型选择" />
+			<datalist id="typedata">
+				<option value="1">单选题</option>
+				<option value="2">填空题</option>
+				<option value="3">简答题</option>
+				<option value="10">其他题型</option>
+			</datalist>
+			<br>
+			<br>
+			<input type="text" placeholder="请输入您要搜索的内容..." class="mytxt"  name="searchinput" id="searchinput" >
+			<br> 
+			<input type="button" class="button" id="submit" name="submit" value="搜索">
+		</div>
+		<div id="textareaBlock">
+			<textarea cols="100px" rows="50px" id="display_area"></textarea>
+		</div>
+		<div>
+			<p id="display"></p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../../JS/jquery-3.2.1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../JS/json2.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../JS/json_parse.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#submit").click(function(){
+		
+		function getData(){
+			var json = {
+			 "type" : $("#type").val().trim(),
+			 "searchkey" : $("#searchinput").val().trim()
+		    }
+			return json;
+		}
+		
+	   $.ajax({	
+		url : "../../ViewQuestionsServlet",
+		type : "POST",
+		dataType : "json",
+		data : JSON.stringify(getData()),	
+	    success : function(res){
+	    	$("#display").html("");
+	    	
+	    	if("false" == res["res"]){
+	    		$("#display").append(res["message"]);
+	    		return;
+	    	}
+	    	
+	    	for(var i = 0; i < res.length; i++){
+	    	var id = "ID: 	" + res[i].id;
+	    	var type = "Type:	 " + res[i].type;
+	    	var stem = "Stem:	 " + res[i].stem;
+	    	var answer = "Answer:		" + res[i].answer;
+	    	var difficulty = "Difficulty:		" + res[i].difdeg;
+	    	
+	    	$("#display_area").append(id + "\n" + type + "\n" + stem + "\n" + answer + "\n" + difficulty + "\n\n");
+	    	}
+	    },
+	    error : function(xmlHttp, status, errMsg){
+	    	alert("数据接受失败！	" + "Message: " +  errMsg);
+	    }
+	   });
+	});
+	});
+</script>
+
+
+</html>

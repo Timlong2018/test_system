@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+</head>
+<body>
+	<div id="nav">
+		<ul>
+			<li><a href="#" id="viewQues">查看试题</a></li>
+			<li><a href="#" id="inputQues">录入试题</a></li>
+			<li><a href="#">试题管理</a></li>
+			<li><a href="#" id="createPaper">创建试卷</a></li>
+		</ul>
+
+	</div>
+
+	<script type="text/javascript" src="../JS/jquery-3.2.1.min.js">
+		
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$("#viewQues").click(function() {
+				window.parent.document.getElementById("main").src = "view_questions/viewQuestion.html";
+				window.parent.document.getElementById("navigator").src = "view_questions/view_ques_navigator.html";
+			});
+
+			$("#inputQues").click(function() {
+				window.parent.document.getElementById("main").src = "input_questions/inputQuestion.html"; 
+				window.parent.document.getElementById("navigator").src = "input_questions/importNavigator.html";
+// 				parent.main.location.href = "inputQuestion.html";
+			});
+
+			$("#createPaper").click(function() {
+				window.parent.document.getElementById("main").src = "paper_creation/producePaper.html"; 
+				window.parent.document.getElementById("navigator").src = "paper_creation/createPaperNavigator.html";
+// 				window.parent.document.getElementById("main").src = "viewTestPaper.html";
+			});
+
+		});
+	</script>
+</body>
+</html>

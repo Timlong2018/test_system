@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>导入试题</title>
+
+<link rel="stylesheet" type="text/css" href="../../CSS/style.css">
+</head>
+<body>
+	<div id="input" class="mainarea">
+	<br/>
+	<br/>
+	<br/>
+		<p id="tip">请上传试题的excel表格文件，文件的格式形如：<br/>"题干：xxxx	答案：xxxx",且保证任意两题不并列出现在表格某一行中。</p>
+	
+	
+		<form name="fileupload" enctype="multipart/form-data" method="post">
+
+			<br /> <br /> 
+			<input id="txt" class="input" type="text" disabled="disabled" value="文件域" name="txt"> <input class=""
+				type="button" id="browse" size="30" value="上传文件"> 
+				<input id="fileUpload" name="fileUpload" class="file" type="file" size="1"
+				style="height: 26px;"> <br> <br> <input
+				id="submit" type="button" value="提交上传">
+		</form>
+	</div>
+
+	<script type="text/javascript" src="../../JS/jquery-3.2.1.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var flag = false;
+
+		$("#browse").click(function(){
+			$("#fileUpload").click();
+		});
+		
+		$("#fileUpload").change(function(){
+			$("#txt").val($("#fileUpload").val().trim());
+		    flag = checkSuffix();
+		    
+		    if(!flag){
+		    	alert("请务必上传扩展名为“.xlsx”或“.xls”的文件！");
+		    }
+		});
+		
+		
+
+		$("#submit").click(function(){
+			var file = document.getElementById("fileUpload").files[0];
+			var formData = new FormData();
+			formData.append("uploadItem", file);
+			
+			if(flag){
+				
+				$.ajax({  
+					url : '../../ImportQuesServlet',  
+					type : 'POST', 
+// 					secureuri: 'false',//一般设置为false
+// 					fileElementId : 'fileUpload',
+					data : formData,
+					dataType : "json",
+					processData : false,  //必须false才会避开jQuery对 formdata 的默认处理   
+					contentType : false,  //必须false才会自动加上正确的Content-Type 
+					success : function(res) {  
+						alert(res["res"] + "\t" + res["message"]);
+					},  
+
+					error : function(xmlHttp, status, errMsg) {  
+						alert("文件上传失败！" + "message:" + errMsg);
+					}  
+				}); 
+			}else{
+				alert("上传的文件格式不正确！");
+			}
+		});
+
+
+		function checkSuffix(){
+			var name = $("#txt").val().trim();
+			var strRegex = "(.xls|.xlsx)$"; 
+			var re = new RegExp(strRegex);
+
+			if (re.test(name.toLowerCase())){
+				return true;
+			} else{
+				return false;
+			}
+		}
+		
+	});
+	</script>
+</body>
+
+
+</html>
